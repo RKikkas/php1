@@ -22,4 +22,14 @@ echo'<pre>';
 // object output by show method
 $sentence1->show();
 echo '<hr/>';
+
+// create another object
+$sentence2 = new text ('Tere koos konstruktoriga');
+// object output
+echo '<pre>';
+print_r($sentence2);
+echo'<pre>';
+// object output by show method
+$sentence2->show();
+echo '<hr/>';
 ?>

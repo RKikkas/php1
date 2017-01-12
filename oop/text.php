@@ -13,7 +13,7 @@ class text {// begin of class
     // set text method
 
     // construct
-    function _construct($s = ''){
+    function __construct($s = ''){
         $this->setText($s);
     }// construct
 
