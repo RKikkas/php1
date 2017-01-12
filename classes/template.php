@@ -13,14 +13,21 @@ if(!defined('TMPL_DIR')){
 }
 class template
 {
+    // class variables
     var $file = ''; // template file name
     var $content = false; // template content - is empty
 
     // class methods
+    // construct
+    function __construct($f){
+        $this->file = $f;
+        $this->loadFile();
+    }// construct
+    
     function loadFile(){
         $f = $this->file; // use file name variable
         // if some problems with tmpl directory
-        if(!is_dir(TPML_DIR)){
+        if(!is_dir(TMPL_DIR)){
             echo 'Kataloogi '.TMPL_DIR.' ei ole leitud<br/>';
             exit;
         }
@@ -42,7 +49,7 @@ class template
             echo 'Ei saanud lugeda faili '.$this->file.'.<br/>';
             exit;
         }
-        
+
     }// loadFile
     function readFile($f){
         $this->content = file_get_contents($f);
