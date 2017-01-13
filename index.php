@@ -24,4 +24,6 @@ $tmpl->set('content', 'minu sisu');
 echo '<pre>';
 print_r($tmpl);
 echo '</pre>';
+
+echo $tmpl->parse();
 ?>
