@@ -14,7 +14,7 @@ require_once CLASSES_DIR.'template.php';
 // create an empty template object
 // set up the file name for template
 // load template file content
-$tmpl = new template('main.html');
+$tmpl = new template('main');
 // control the content of template object
 echo '<pre>';
 print_r($tmpl);
