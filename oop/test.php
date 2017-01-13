@@ -41,4 +41,15 @@ echo'<pre>';
 // object output by show method
 $sentence3->show();
 echo '<hr/>';
+// create a fourth object
+$sentence4 = new ctext('punase värvi tekst');
+// set up color
+$sentence4->setColor('#FF0000');
+// object output
+echo '<pre>';
+print_r($sentence4);
+echo'<pre>';
+// object output by show method
+$sentence4->show();
+echo '<hr/>';
 ?>
