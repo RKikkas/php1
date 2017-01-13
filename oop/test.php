@@ -7,6 +7,7 @@
  */
 // use text object class
 require_once 'text.php';
+require_once 'ctext.php';
 // create objects
 $sentence1 =  new text();
 // object output
@@ -22,7 +23,6 @@ echo'<pre>';
 // object output by show method
 $sentence1->show();
 echo '<hr/>';
-
 // create another object
 $sentence2 = new text ('Tere koos konstruktoriga');
 // object output
@@ -31,5 +31,14 @@ print_r($sentence2);
 echo'<pre>';
 // object output by show method
 $sentence2->show();
+echo '<hr/>';
+// create a third object
+$sentence3 = new ctext('musta värvi tekst');
+// object output
+echo '<pre>';
+print_r($sentence3);
+echo'<pre>';
+// object output by show method
+$sentence3->show();
 echo '<hr/>';
 ?>
