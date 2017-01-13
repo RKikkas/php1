@@ -61,6 +61,7 @@ class template
     // $val - real value for template element
     function set($name, $val){
         $this->vars[$name] = $val;
-    }
+    } // set
+    
 }// class end
 ?>
