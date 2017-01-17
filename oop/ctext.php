@@ -27,6 +27,6 @@ class ctext extends text
         }else {
             echo '<font color="'.$this->color.'">'.$this->str.'</font><br/>';
         }
-    }
+    }// show
 }// end of class
 ?>
