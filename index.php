@@ -39,5 +39,8 @@ echo '<hr />';
 require_once CLASSES_DIR.'http.php';
 // create http object
 $http = new http();
-
+// output http object
+echo '<pre>';
+print_r($http);
+echo '</pre>';
 ?>
