@@ -13,6 +13,12 @@ class http
     var $vars = array(); // http data
     var $cookie = array(); // cookie data
     // class methods
+    // class construct for object initializing
+    function __construct(){
+        $this->init(); // initialize variables with real data
+        $this->initConst(); // initialize constants by real data values
+    }// construct
+
     // initialize class variables and set up real data
     function init(){
         $this->server = $_SERVER; // server real data

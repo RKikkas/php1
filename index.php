@@ -28,7 +28,16 @@ $tmpl->set('content', 'minu sisu');
 // control the content of template object
 /* echo '<pre>';
 print_r($tmpl);
-echo '</pre>'; */
-
+echo '</pre>'; 
+*/
+// output template content set up with real values
 echo $tmpl->parse();
+//
+// http object testing
+echo '<hr />';
+// import http class file
+require_once CLASSES_DIR.'http.php';
+// create http object
+$http = new http();
+
 ?>
