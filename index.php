@@ -6,7 +6,7 @@
  * Date: 12.01.2017
  * Time: 12:58
  */
-/* echo '<link rel="stylesheet" type="text/css" href="css/style.css">'; */
+// echo '<link rel="stylesheet" type="text/css" href="css/style.css">';
 // create an template object
 define('CLASSES_DIR', 'classes/');
 define('TMPL_DIR', 'tmpl/');
@@ -43,4 +43,9 @@ $http = new http();
 echo '<pre>';
 print_r($http);
 echo '</pre>';
+// output http constants
+echo HTTP_HOST.'<br/>';
+echo SCRIPT_NAME.'<br/>';
+echo PHP_SELF.'<br/>';
+echo REMOTE_ADDR.'<br/>';
 ?>
