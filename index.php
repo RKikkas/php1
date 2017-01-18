@@ -54,4 +54,13 @@ $http->set('kasutaja', 'roger');
 echo '<pre>';
 print_r($http->vars);
 echo '</pre>';
+echo '<hr />';
+// import linkobject file
+require_once CLASSES_DIR.'linkobject.php';
+// create linkobject object
+$lo = new linkobject();
+// output linkobject
+echo '<pre>';
+print_r($lo);
+echo '</pre>';
 ?>
