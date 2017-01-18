@@ -48,4 +48,10 @@ echo HTTP_HOST.'<br/>';
 echo SCRIPT_NAME.'<br/>';
 echo PHP_SELF.'<br/>';
 echo REMOTE_ADDR.'<br/>';
+// set up vars array pair element_name => element_value
+$http->set('kasutaja', 'roger');
+// output http object vars element
+echo '<pre>';
+print_r($http->vars);
+echo '</pre>';
 ?>
