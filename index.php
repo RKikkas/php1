@@ -37,6 +37,10 @@ echo $tmpl->parse();
 echo '<hr />';
 // import http class file
 require_once CLASSES_DIR.'http.php';
+// import linkobect file
+require_once CLASSES_DIR.'linkobject.php';
+// create linkobject object, because it extends http object
+$http = new linkobject();
 // create http object
 $http = new http();
 // output http object
