@@ -18,6 +18,7 @@ require_once CLASSES_DIR.'template.php';
 $tmpl = new template('main');
 // add pairs of temlate element names and real values
 $tmpl->set('style', STYLE_DIR.'main'.'.css');
+
 $tmpl->set('header', 'minu lehe pealkiri');
 $tmpl->set('menu', 'minu menüü');
 $tmpl->set('nav_bar', 'minu navigatsioon');
@@ -63,4 +64,10 @@ echo '<hr />';
 //$http->addToLink($link, 'parool', 'qwerty');
 //name1=value1&name2=value2
 echo $http->getLink(array('user'=>'test', 'parool'=>'qwerty'));
+// output link
+echo $link;
+//
+// menu testing
+// import menu file
+require_once 'menu.php';
 ?>
