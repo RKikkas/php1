@@ -19,6 +19,8 @@ $menu->set('items', $item->parse());
 $item->set('name', 'Teine leht');
 $link = $http->getLink(array('act'=>'second'));
 $item->set('link', $link);
+// add item to menu
+$menu->add('items', $item->parse());
 // output objects
 // menu
 echo '<pre>';
