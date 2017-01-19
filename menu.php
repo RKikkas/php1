@@ -23,11 +23,12 @@ $item->set('link', $link);
 $menu->add('items', $item->parse());
 // output objects
 // menu
-echo '<pre>';
-print_r($menu);
-echo '</pre>';
+// echo '<pre>';
+// print_r($menu);
+// echo '</pre>';
 // item
-echo '<pre>';
-print_r($item);
-echo '</pre>';
+// echo '<pre>';
+// print_r($item);
+//echo '</pre>';
+echo $menu->parse();
 ?>
