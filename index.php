@@ -8,6 +8,7 @@
  */
 // create and template object
 require_once 'conf.php';
+//
 // and use it
 // create an template object,
 // set up the file name for template
@@ -26,4 +27,8 @@ $tmpl->set('lang_bar', 'minu keeleriba');
 $tmpl->set('content', 'minu sisu');
 // output template content set up with real values
 echo $tmpl->parse();
+// database object test output
+echo '<pre>';
+print_r($db);
+echo '</pre>';
 ?>
