@@ -29,8 +29,10 @@ $tmpl->set('content', 'minu sisu');
 echo $tmpl->parse();
 // database object test output
 $sql = 'SELECT NOW()';
-$res = $db->query($sql);
-echo '<pre>';
-print_r($res);
-echo '</pre>';
+$res = $db->getArray($sql);
+$sql = 'SELECT NOW()';
+$res = $db->getArray($sql);
+$sql = 'SELECT NOW()';
+$res = $db->getArray($sql);
+$db->showHistory();
 ?>

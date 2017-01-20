@@ -32,15 +32,27 @@ class mysql
             exit;
         } // if problem with connection
     }// connect
-
+    
+    // query time control
+    function getMicrotime(){
+        list($usec, $sec) = explode(" ", microtime());
+        return ((float)$usec + (float)$sec);
+    }// getMicrotime
+    
     // query to database
     function query($sql){
+        $begin = $this->getMicrotime();
         $res = mysqli_query($this->conn, $sql);
         if($res === FALSE){
             echo 'Viga päringuga <b>'.$sql.'</b><br />';
             echo mysqli__error($this->conn).'<br />';
             exit;
         }
+        $time = $this->getMicrotime() - $begin;
+        $this->history[] = array(
+            'sql' => $sql,
+            'time' => $time
+        );
         return $res;
     }// query
 
@@ -56,5 +68,16 @@ class mysql
         }
         return $data;
     }// getArray
+
+    // log history output
+    function showHistory(){
+        if(count($this->history) > 0){
+            echo '<hr />';
+            foreach ($this->history as $key=>$val){
+                echo '<li>'.$val['sql'].'<br />';
+                echo '<strong>'.round($val['time'], 6).'</strong></li>';
+            }
+        }
+    }// showHistory
 }// class end
 ?>
