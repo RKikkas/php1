@@ -8,6 +8,8 @@
  */
 // import configuration
 require_once 'conf.php';
+// import act description
+require_once 'act.php';
 // create and template object
 // and use it
 // create an template object,
@@ -19,7 +21,7 @@ $tmpl->set('style', STYLE_DIR.'main'.'.css');
 $tmpl->set('header', 'minu lehe pealkiri');
 // menu testing
 // import menu file
-require_once 'menu.php'; 
+require_once 'menu.php';
 // end of menu
 $tmpl->set('nav_bar', 'minu navigatsioon');
 $tmpl->set('lang_bar', 'minu keeleriba');
