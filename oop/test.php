@@ -5,51 +5,46 @@
  * Date: 12.01.2017
  * Time: 11:19
  */
-// use text object class
-require_once 'text.php';
+// require the object creating and using classes
+require_once('text.php');
 require_once 'ctext.php';
-// create objects
-$sentence1 =  new text();
-// object output
+// create an object
+$sentence = new text();
+// control object output
 echo '<pre>';
-print_r($sentence1);
-echo'<pre>';
-// set text value
-$sentence1->setText('Tere VS16!');
-// object output
+print_r($sentence);
+echo '</pre>';
+// set text
+$sentence->setText('Hello text object!');
+// control object output
 echo '<pre>';
-print_r($sentence1);
-echo'<pre>';
-// object output by show method
-$sentence1->show();
+print_r($sentence);
+echo '</pre>';
+// show object output
+$sentence->show();
 echo '<hr/>';
-// create another object
-$sentence2 = new text ('Tere koos konstruktoriga');
-// object output
+// create an object
+$sentence2 = new text('Hello text by construct!');
+// control object output
 echo '<pre>';
 print_r($sentence2);
-echo'<pre>';
-// object output by show method
+echo '</pre>';
+// show object output
 $sentence2->show();
 echo '<hr/>';
-// create a third object
-$sentence3 = new ctext('musta värvi tekst');
-// object output
+// create an object
+$sentence3 = new ctext('Hello color text by construct!');
+// control object output
 echo '<pre>';
 print_r($sentence3);
-echo'<pre>';
-// object output by show method
+echo '</pre>';
+// show object output
 $sentence3->show();
-echo '<hr/>';
-// create a fourth object
-$sentence4 = new ctext('punase värvi tekst');
-// set up color
-$sentence4->setColor('#FF0000');
-// object output
+// set object color
+$sentence3->setColor('#FF0000');
 echo '<pre>';
-print_r($sentence4);
-echo'<pre>';
-// object output by show method
-$sentence4->show();
-echo '<hr/>';
+print_r($sentence3);
+echo '</pre>';
+// show object output
+$sentence3->show();
 ?>

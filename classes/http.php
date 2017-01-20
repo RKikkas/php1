@@ -18,7 +18,6 @@ class http
         $this->init(); // initialize variables with real data
         $this->initConst(); // initialize constants by real data values
     }// construct
-
     // initialize class variables and set up real data
     function init(){
         $this->server = $_SERVER; // server real data
@@ -29,19 +28,19 @@ class http
     function initConst(){
         // define array with some server element names
         $vars = array('REMOTE_ADDR', 'PHP_SELF', 'SCRIPT_NAME', 'HTTP_HOST');
-        // control is constant defined for each constant name
+        // controll is constant defined for each constant name
         foreach ($vars as $var){
             if(!defined($var) and isset($this->server[$var])){
                 define($var, $this->server[$var]);
-            }// if
+            }
         }// foreach
     }// initConst
-    // set up $this->vars elements: element_name => element_value
+    // set up $this->vars array elements: element_name => element_value
     // $name - element name, for example user
     // $val - element value, for example test
     // $this->vars['user'] = 'test'
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
-}//http class end
+}// http class end
 ?>

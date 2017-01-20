@@ -15,19 +15,17 @@ class template
 {
     // class variables
     var $file = ''; // template file name
-    var $content = false; // template content - is empty
+    var $content = false; // template content - now is empty
     var $vars = array(); // table for real values of html template output
-
     // class methods
     // construct
     function __construct($f){
         $this->file = $f;
         $this->loadFile();
     }// construct
-    
     function loadFile(){
         $f = $this->file; // use file name variable
-        // if some problems with tmpl directory
+        // if some problem with tmpl directory
         if(!is_dir(TMPL_DIR)){
             echo 'Kataloogi '.TMPL_DIR.' ei ole leitud<br/>';
             exit;
@@ -36,19 +34,19 @@ class template
         if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
-        // we can set path to template file: ../tmpl/file.html, $this->file is file.html
+        // we can set path to template file: tmpl/file.html, $this->file is file.html
         $f = TMPL_DIR.$this->file;
-        if(file_exists($f) and is_file($f) and is_readable($f)) {
+        if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
         // we can set only file name, $this->file is file
         $f = TMPL_DIR.$this->file.'.html';
-        if(file_exists($f) and is_file($f) and is_readable($f)) {
+        if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
-        // if we use subdirectories: /tmpl/dir/file.html - tmpl/dir.file
+        // if we use subdirectories: /tmpl/dir/file - tmpl/dir.file
         $f = TMPL_DIR.str_replace('.', '/', $this->file).'.html';
-        if(file_exists($f) and is_file($f) and is_readable($f)) {
+        if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         } // subdirectories
         if($this->content === false){
@@ -56,18 +54,15 @@ class template
             exit;
         }
     }// loadFile
-
     function readFile($f){
         $this->content = file_get_contents($f);
     }// readFile
-
     // set up html template elements and their real values
     // $name - template element name
     // $val - real value for template element
     function set($name, $val){
         $this->vars[$name] = $val;
-    } // set
-
+    }// set
     // add values to element
     function add($name, $val){
         if(!isset($this->vars[$name])){
@@ -76,7 +71,6 @@ class template
             $this->vars[$name] = $this->vars[$name].$val;
         }
     }// add
-
     // parse template content and replace template table names by
     // template table real values
     function parse(){
@@ -86,6 +80,5 @@ class template
         }
         // return template content with real values
         return $str;
-    } // parse
+    }// parse
 }// class end
-?>

@@ -6,27 +6,27 @@
  * Date: 13.01.2017
  * Time: 12:04
  */
-// import text class variables and methods
-require_once 'text.php';
+// allow to use text class in ctext class
+require_once('text.php');
 class ctext extends text
-{// begin of class
-    // class variable - color
-    var $color = false; // color is not exists
-
+{// ctext begin
+    // class variable
+    var $color = false;
     // methods
-    // set up the color
+    // set color
     function setColor($c){
-        // set up $c parameter value to
-        // $this->color variable
-        $this->color = $c; // s
+        $this->color = $c;
     }// setColor
-    // show object
-    function show(){
+    // show color text - overrided text class function
+    function show()
+    {
+        // if color is not set - use black and white output
         if($this->color === false){
-            parent::show(); // use
+            parent::show(); // use text class show function
         }else {
+            // if color is set - use color output
             echo '<font color="'.$this->color.'">'.$this->str.'</font><br/>';
         }
     }// show
-}// end of class
+}// ctext end
 ?>

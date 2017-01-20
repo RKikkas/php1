@@ -23,6 +23,7 @@ class mysql
         $this->dbname = $dbn; // database server user database
         $this->connect(); // connect to real database server
     }//construct
+
     // connection to database server
     function connect(){
         $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
@@ -42,5 +43,18 @@ class mysql
         }
         return $res;
     }// query
+
+    // data query from database
+    function getArray($sql){
+        $res = $this->query($sql);
+        $data = array();
+        while($record = mysqli_fetch_assoc($res)){
+            $data[] = $record;
+        }
+        if(count($data) == 0){
+            return false;
+        }
+        return $data;
+    }// getArray
 }// class end
 ?>
