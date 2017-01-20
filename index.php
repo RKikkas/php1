@@ -6,9 +6,9 @@
  * Date: 12.01.2017
  * Time: 12:58
  */
-// create and template object
+// import configuration
 require_once 'conf.php';
-//
+// create and template object
 // and use it
 // create an template object,
 // set up the file name for template
