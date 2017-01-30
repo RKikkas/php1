@@ -25,6 +25,16 @@ class session
         $this->checkSession();
     }// construct
 
+    // set anonymous
+	function setAnonymous($bool){
+        $this->anonymous = $bool;
+    }// setAnonymous
+
+	// setup timeout
+	function setTimout($t){
+        $this->timeout = $t;
+    }// setTimeout
+
     // create session
     function createSession($user = false){
         // anonymous session
