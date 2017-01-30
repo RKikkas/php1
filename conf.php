@@ -10,8 +10,13 @@ define('CLASSES_DIR', 'classes/');
 define('TMPL_DIR', 'tmpl/');
 define('STYLE_DIR', 'css/');
 define('ACTS_DIR', 'acts/'); // default act directory
+define('LIB_DIR', 'lib/'); // lib path
 
 define('DEFAULT_ACT', 'default'); // default act file name
+
+// import useful functions
+require_once LIB_DIR.'utils.php';
+
 // import classes
 require_once CLASSES_DIR.'template.php'; // import template class file
 require_once CLASSES_DIR.'http.php'; // import http class file
