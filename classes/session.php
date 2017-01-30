@@ -15,10 +15,10 @@ class session
     var $db = false;
     var $anonymous = true;
     var $timeout = 1800;
-
+    
     // class methods
     // construct
- 	function __construct(&$http, &$db){
+    function __construct(&$http, &$db){
         $this->http = &$http;
         $this->db = &$db;
         $this->sid = $http->get('sid');
@@ -26,12 +26,12 @@ class session
     }// construct
 
     // set anonymous
-	function setAnonymous($bool){
+    function setAnonymous($bool){
         $this->anonymous = $bool;
     }// setAnonymous
 
-	// setup timeout
-	function setTimout($t){
+    // setup timeout
+    function setTimout($t){
         $this->timeout = $t;
     }// setTimeout
 
@@ -63,13 +63,13 @@ class session
     // delete session data from database
     function clearSessions(){
         $sql = 'DELETE FROM session'.' WHERE '.
-                time().' - UNIX_TIMESTAMP(changed) > '.
-                $this->timeout;
-            $this->db->query($sql);
-        }// clearSessions
+            time().' - UNIX_TIMESTAMP(changed) > '.
+            $this->timeout;
+        $this->db->query($sql);
+    }// clearSessions
 
-    // control session
-    function checkSessions(){
+    // controll session
+    function checkSession(){
         $this->clearSessions();
         if($this->sid === false and $this->anonymous){
             $this->createSession();
@@ -89,7 +89,7 @@ class session
                 define('ROLE_ID', 0);
                 define('USER_ID', 0);
             }
-            else {
+            else{
                 $vars = unserialize($res[0]['svars']);
                 if(!is_array($vars)){
                     $vars = array();
@@ -107,7 +107,7 @@ class session
     }// checkSession
 
     // delete session by request
-	function deleteSession(){
+    function deleteSession(){
         if($this->sid !== false){
             $sql = 'DELETE FROM session WHERE '.
                 'sid='.fixDb($this->sid);
@@ -117,8 +117,8 @@ class session
         }
     }// deleteSession
 
-	// set up data for http object - pairs element_name => element value
-	function set($name, $val){
+    // set up data for http object - pairs element_name => element value
+    function set($name, $val){
         $this->vars[$name] = $val;
     }// set
     // get element_value according to the element_name
@@ -128,24 +128,24 @@ class session
             return $this->vars[$name];
         }
         // if element with such name is not exists
- 		return false;
- 	}// get
+        return false;
+    }// get
 
-	//delete http data element
-	function del($name){
-    		if(isset($this->vars[$name])){
-        			unset($this->vars[$name]);
- 		}
- 	}// del
+    //delete http data element
+    function del($name){
+        if(isset($this->vars[$name])){
+            unset($this->vars[$name]);
+        }
+    }// del
 
     //update session data
-	function flush(){
+    function flush(){
         if($this->sid !== false){
             $sql = 'UPDATE session SET changed=NOW(), '.
-                    'svars='.fixDb(serialize($this->vars)).
-                    ' WHERE sid='.fixDb($this->sid);
+                'svars='.fixDb(serialize($this->vars)).
+                ' WHERE sid='.fixDb($this->sid);
             $this->db->query($sql);
         }
- 	}
+    }
 }// class end
 ?>
