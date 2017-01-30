@@ -22,7 +22,7 @@ class session
         $this->http = &$http;
         $this->db = &$db;
         $this->sid = $http->get('sid');
-        $this->createSession();
+
     }// construct
 
     // create session
@@ -57,6 +57,27 @@ class session
                 $this->timeout;
             $this->db->query($sql);
         }// clearSessions
+
+    // control session
+    function checkSessions(){
+        $this->clearSessions();
+        if($this->sid === false and $this->anonymous){
+            $this->createSession();
+        }
+        if($this->sid !== false){
+            // get data about this session
+            $sql = 'SELECT * FROM session WHERE '.
+                'sid='.fixDb($this->sid);
+            $res = $this->db->getArray($sql);
+            if($res == false){
+                if($this->anonymous){
+                    $this->createSession();
+                } else {
+                    $this->sid = false;
+                }
+            }
+        }
+    }// checkSession
     
 }// class end
 ?>
