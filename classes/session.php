@@ -50,5 +50,12 @@ class session
         $this->http->set('sid', $sid);
     }// createSession
 
+    // delete session data from database
+    function clearSessions(){
+        $sql = 'DELETE FROM session'.' WHERE '.
+                time().' - UNIX_TIMESTAMP(changed) > '.
+                $this->timeout;
+            $this->db->query($sql);
+        }// clearSessions
 }// class end
 ?>
