@@ -57,5 +57,6 @@ class session
                 $this->timeout;
             $this->db->query($sql);
         }// clearSessions
+    
 }// class end
 ?>
