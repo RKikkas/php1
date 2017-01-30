@@ -39,7 +39,9 @@ $res = $db->getArray($sql);
 // control query log output
 $db->showHistory();
 // control session output
+$sess->flush();
 echo '<pre>';
 print_r($sess);
 echo '</pre>';
+
 ?>
