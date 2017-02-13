@@ -10,7 +10,7 @@ $sep = new Template('lang.sep');
 $sep = $sep->parse();
 $count = 0;
 // koik keeled meil on konfis keelemassiivis kujul - et=>nimi
-foreach($siteLangs as $lang_id = $lang_name)
+foreach($siteLangs as $lang_id => $lang_name)
 {
     // suurendame keele eraldajate joonistamiseks
     $count++;

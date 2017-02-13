@@ -16,12 +16,22 @@ require_once 'act.php';
 // set up the file name for template
 // load template file content
 $tmpl = new template('main');
+
+// require language control
+require_once 'lang.php';
+
 // add pairs of temlate element names and real values
 $tmpl->set('style', STYLE_DIR.'main'.'.css');
 $tmpl->set('header', 'minu lehe pealkiri');
-// menu testing
+
+// craete and output menu
 // import menu file
-require_once 'menu.php';
+require_once 'menu.php'; // in this file is menu creation
+$tmpl->set('menu', $menu->parse());
+
+// import act file
+require_once 'act.php';
+
 // end of menu
 $tmpl->set('nav_bar', $sess->user_data['username']);
 $tmpl->set('lang_bar', LANG_ID);
