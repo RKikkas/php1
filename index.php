@@ -24,7 +24,7 @@ $tmpl->set('header', 'minu lehe pealkiri');
 require_once 'menu.php';
 // end of menu
 $tmpl->set('nav_bar', $sess->user_data['username']);
-$tmpl->set('lang_bar', 'minu keeleriba');
+$tmpl->set('lang_bar', LANG_ID);
 // $tmpl->set('content', 'minu sisu');
 $tmpl->set('content', $http->get('content'));
 // output template content set up with real values
