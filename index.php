@@ -8,50 +8,49 @@
  */
 // import configuration
 require_once 'conf.php';
-// import act description
-require_once 'act.php';
-// create and template object
-// and use it
 // create an template object,
 // set up the file name for template
 // load template file content
 $tmpl = new template('main');
-
-// require language control
-require_once 'lang.php';
-
+// require langugage control
+require_once('lang.php');
 // add pairs of temlate element names and real values
 $tmpl->set('style', STYLE_DIR.'main'.'.css');
 $tmpl->set('header', 'minu lehe pealkiri');
-
-// craete and output menu
+// create and output menu
 // import menu file
 require_once 'menu.php'; // in this file is menu creation
 $tmpl->set('menu', $menu->parse());
-
+//$tmpl->set('nav_bar', $sess->user_data['username']);
+// allow to use default act
+//$tmpl->set('content', $http->get('content'));
+// output template content set up with real values
 // import act file
 require_once 'act.php';
-
-// end of menu
+//using session data
 $tmpl->set('nav_bar', $sess->user_data['username']);
-$tmpl->set('lang_bar', LANG_ID);
-// $tmpl->set('content', 'minu sisu');
-$tmpl->set('content', $http->get('content'));
-// output template content set up with real values
+//$tmpl->set('lang_bar', LANG_ID);
 echo $tmpl->parse();
-// database object test output
-$sql = 'SELECT NOW()';
+// control actions
+// control database object
+// create test query
+$sql = 'SELECT NOW();';
 $res = $db->getArray($sql);
-$sql = 'SELECT NOW()';
+$sql = 'SELECT NOW();';
 $res = $db->getArray($sql);
-$sql = 'SELECT NOW()';
+$sql = 'SELECT NOW();';
 $res = $db->getArray($sql);
-// control query log output
+// if page is changed, keep sid same
+$sess->flush();
+// control database query result
+echo '<pre>';
+print_r($res);
+echo '</pre>';
+// query time control
 $db->showHistory();
 // control session output
 $sess->flush();
 echo '<pre>';
 print_r($sess);
 echo '</pre>';
-
 ?>

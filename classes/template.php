@@ -44,11 +44,14 @@ class template
         if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
-        // if we use subdirectories: /tmpl/dir/file - tmpl/dir.file
+        // if html template files are in inner directories
+        // represented as dir.file
         $f = TMPL_DIR.str_replace('.', '/', $this->file).'.html';
+        // allow to read inner file content
         if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
-        } // subdirectories
+        }
+        // if some problems
         if($this->content === false){
             echo 'Ei saanud lugeda faili '.$this->file.'.<br/>';
             exit;
@@ -63,12 +66,13 @@ class template
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
-    // add values to element
+    // add to html template another real values
     function add($name, $val){
         if(!isset($this->vars[$name])){
             $this->set($name, $val);
         } else {
-            $this->vars[$name] = $this->vars[$name].$val;
+            // $this->vars[$name] = $this->vars[$name].$val;
+            $this->vars[$name] .= $val;
         }
     }// add
     // parse template content and replace template table names by
@@ -82,3 +86,4 @@ class template
         return $str;
     }// parse
 }// class end
+?>
