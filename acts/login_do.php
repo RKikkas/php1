@@ -21,6 +21,6 @@ if($res === false)
 else
 {
     $sess->createSession($res[0]);
-    // now we have to redirect to index.php
+    $http->redirect();
 }
 ?>
