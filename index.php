@@ -23,7 +23,7 @@ $tmpl->set('header', 'minu lehe pealkiri');
 // import menu file
 require_once 'menu.php';
 // end of menu
-$tmpl->set('nav_bar', 'minu navigatsioon');
+$tmpl->set('nav_bar', $sess->user_data['username']);
 $tmpl->set('lang_bar', 'minu keeleriba');
 // $tmpl->set('content', 'minu sisu');
 $tmpl->set('content', $http->get('content'));
